@@ -6,16 +6,11 @@ import android.os.Bundle;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,9 +20,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -48,7 +40,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.list_acttivity_menu,menu);
+        inflater.inflate(R.menu.list_activity_menu,menu);
         return true;
 
     }
@@ -102,7 +94,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         FirebaseUtil.openFbReference("traveldeals",this);
-        RecyclerView rvDeals= (RecyclerView) findViewById(R.id.rvDeals);
+        RecyclerView rvDeals=  findViewById(R.id.rvDeals);
         final DealAdapter adapter= new DealAdapter();
         rvDeals.setAdapter(adapter);
         LinearLayoutManager dealsLayoutManager =
